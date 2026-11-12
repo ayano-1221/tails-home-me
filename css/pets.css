@@ -1,0 +1,285 @@
+/* ----------色の登録---------- */
+
+:root {
+  --base-color: #fcf7ef;
+  --main-color: #fff2c7;
+  --accent-color: #788a2e;
+  --text-color: #423020;
+  --text_accent-color: #fffbf8;
+  --sub-color: #c5d486;
+}
+/* 使う時の記載方法
+  (例)background-color: var(--accent-color); */
+
+h2,
+h3 {
+  text-align: center;
+}
+
+.case_dogs,
+.case_cats {
+  font-size: 24px;
+  text-align: center;
+  margin-top: 16px;
+}
+.message {
+  text-align: center;
+  font-size: 19px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+/* 円グラフ画像 */
+.dog_a_day img,
+.cat_a_day img {
+  display: block;
+  width: 65%;
+  max-width: 1440px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.dog_logo,
+.cat_logo {
+  display: inline-block;
+  width: 28px;
+  height: auto;
+}
+
+.dog-card,
+.cat-card {
+  text-align: center;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.dog-card,
+.cat_card {
+  display: flex;
+  align-items: center; /* 縦方向の中央揃え */
+  justify-content: center; /* 横方向の中央揃え */
+  gap: 16px;
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+.shelter_dogs,
+.shelter_cats {
+  width: 24px;
+  margin-bottom: 9px;
+}
+
+/* --------arita-san----------------- */
+.animals {
+  background-image: url(../images/bg_paw_r_sp.webp);
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.animal_item {
+  position: relative;
+  background-color: var(--main-color);
+  border-radius: 16px;
+}
+
+.animal_item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  box-shadow: inset 0 0 5px 3px rgba(179, 136, 98, 0.327);
+  pointer-events: none;
+}
+
+.animal_list {
+  display: flex;
+  gap: 1rem;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.animal_item {
+  width: 50%;
+}
+/* .animal_item img {
+  border-radius: 16px 16px 0 0;
+  margin-bottom: 0.5rem;
+} */
+
+.animal_item > img {
+  width: 100%;
+  height: 150px; /* ★ここでお好みの高さに調整できます（例: 120px〜150px） */
+  object-fit: cover; /* ★画像が歪まないように自動で綺麗にトリミングします */
+  border-radius: 16px 16px 0 0;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.animal_item:nth-of-type(1) span,
+.animal_item:nth-of-type(3) span,
+.animal_item:nth-of-type(5) span,
+.animal_item:nth-of-type(7) span,
+.animal_item:nth-of-type(9) span,
+.animal_item:nth-of-type(11) span {
+  color: #76b4fb;
+}
+
+.animal_item:nth-of-type(2) span,
+.animal_item:nth-of-type(4) span,
+.animal_item:nth-of-type(6) span,
+.animal_item:nth-of-type(8) span,
+.animal_item:nth-of-type(10) span,
+.animal_item:nth-of-type(12) span {
+  color: #fb735b;
+}
+
+.animal_birthday {
+  display: flex;
+  gap: 0.2rem;
+  align-items: center;
+  border-bottom: 4px dotted #442a13b3;
+  margin: 0 0.5rem;
+  justify-content: center;
+}
+.animal_birthday img {
+  width: 15%;
+  height: auto;
+}
+
+.animal_birthday p {
+  font-size: 15px;
+}
+
+.animal_item h4,
+.animal_item p:nth-of-type(1) {
+  text-align: center;
+}
+
+.animal_item p:nth-of-type(2) {
+  padding: 0.5rem 0.7rem 0 0.7rem;
+}
+.animal_item p:nth-of-type(3) {
+  padding: 0 0.7rem 0.7rem 0.7rem;
+}
+
+/* -------grid------------- */
+.animal_list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2列に均等分割する */
+  gap: 16px; /* カード同士の間隔 */
+  list-style: none;
+  padding: 0 12px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 40px; /* 必要に応じて 30px〜60px などに調整してください */
+}
+
+/* 1枚ごとのカードの設定 */
+.animal_item {
+  width: 100%; /* グリッドの枠いっぱいに広げる */
+  background-color: var(--main-color);
+  border-radius: 16px;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 12px;
+}
+/* -------------pc------------------ */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 1240px;
+  }
+  .animal_list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2列に均等分割する */
+    gap: 16px; /* カード同士の間隔 */
+    list-style: none;
+    padding: 0 12px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 40px; /* 必要に応じて 30px〜60px などに調整してください */
+    font-size: 24px;
+    .animal_birthday p {
+      font-size: 30px;
+    }
+    .message {
+      text-align: center;
+      font-size: 30px;
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
+    .animal_item > img {
+      width: 100%;
+      height: 500px; /* ★ここでお好みの高さに調整できます（例: 120px〜150px） */
+      object-fit: cover; /* ★画像が歪まないように自動で綺麗にトリミングします */
+      border-radius: 16px 16px 0 0;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+  }
+}
+
+.fixed_reservation {
+  position: fixed;
+  display: flex;
+  gap: 0.5rem;
+  top: 30%;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 0.8rem;
+  background-color: var(--accent-color);
+  color: var(--text_accent-color);
+  border-radius: 16px 0 0 16px;
+  writing-mode: vertical-rl;
+  letter-spacing: 0.2em;
+  box-shadow: inset 4px 4px 8px #43501149;
+}
+
+.fixed_reservation img {
+  width: 1.5rem;
+}
+
+.fixed_reservation {
+  gap: 0.5rem;
+  top: 20%;
+  padding: 1.5rem 1.5rem;
+  letter-spacing: 0.3em;
+  box-shadow: inset 4px 4px 8px #43501149;
+}
+
+.fixed_reservation:hover {
+  background-color: #b5d048;
+  transition: 0.5s;
+}
+
+.fixed_reservation {
+  position: fixed;
+  display: flex;
+  gap: 0.5rem;
+  top: 20%;
+  right: 0;
+  z-index: 1000;
+  padding: 1.5rem;
+  background-color: var(--accent-color);
+  color: var(--text_accent-color);
+  border-radius: 16px 0 0 16px;
+  writing-mode: vertical-rl;
+  letter-spacing: 0.3em;
+  box-shadow: inset 4px 4px 8px #43501149;
+
+  /* 追加 */
+  text-decoration: none;
+}
+
+.fixed_reservation img {
+  width: 1.5rem;
+}
+
+.fixed_reservation:hover {
+  background-color: #b5d048;
+  transition: 0.5s;
+}

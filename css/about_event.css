@@ -1,0 +1,256 @@
+/* ----------色の登録---------- */
+
+:root {
+  --base-color: #fcf7ef;
+  --main-color: #fff2c7;
+  --accent-color: #788a2e;
+  --text-color: #423020;
+  --text_accent-color: #fffbf8;
+  --sub-color: #c5d486;
+}
+/* 使う時の記載方法
+  (例)background-color: var(--accent-color); */
+
+/* -------------------- レイアウト -------------------- */
+
+.text_center {
+  text-align: center;
+}
+
+.color_container {
+  background-color: var(--main-color);
+  padding: 1rem 1.5rem 0;
+}
+
+.about-intro {
+  padding: 0px 1.5rem 0;
+}
+
+.about-intro h2 {
+  text-align: center;
+}
+
+.about-intro p {
+  padding-bottom: 50px;
+}
+
+.faq {
+  padding: 0px 2rem 50px;
+}
+
+/* -------------------- スライドの画像 -------------------- */
+
+.transfermeeting_img {
+  max-width: 300px;
+}
+
+/* スライドショー全体 */
+.transfermeeting_slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+/* 左右の丸いボタン */
+.prev_left,
+.prev_right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+
+  border: 2px solid var(--text-color);
+  border-radius: 50%;
+  background-color: #ffffff9d;
+  color: var(--text-color);
+
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* 画像の表示エリア */
+.transfermeeting {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* スライドを横並び */
+.transfermeeting_track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* 各スライド */
+.transfermeeting_track > div {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+/* 画像 */
+.transfermeeting_img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* -------------------- ロードマップ -------------------- */
+
+.adoption_roadmap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.join {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  width: 100%;
+  max-width: 300px;
+  height: 45px;
+
+  border: 1px solid #5b4a35;
+  border-radius: 8px;
+  background-color: #f1facd;
+
+  color: var(--text-color);
+}
+/* ----- 緑の円形 ----- */
+.join_circle {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: #f1facd;
+  border: 1px solid var(--text-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  margin-left: -15px;
+}
+
+/* ----- 円の上に重ねる画像 ----- */
+.join_circle img {
+  width: 60px;
+  /* height: 42px; */
+  object-fit: contain;
+}
+
+/* 文字 */
+.join_text {
+  font-size: 16px;
+  flex: 1;
+  text-align: center;
+  margin-right: 1.3rem;
+}
+
+/* 下向き三角 */
+.roadmap_arrow {
+  display: block;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text-color);
+  margin: 10px 0;
+}
+
+/* -------------------- 案内 -------------------- */
+.map_list li {
+  list-style: disc;
+  list-style-position: inside;
+}
+
+/* GoogleMap */
+.access_map {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.access_map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 1rem 0 1rem 0;
+}
+
+/* -------------------- FAQ -------------------- */
+
+.text_center_weight {
+  font-weight: 700;
+}
+
+/* FAQ全体 */
+.faq_list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 質問 */
+.faq_question {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+  padding: 10px 10px;
+
+  border: none;
+  border-radius: 8px;
+  background-color: #f1facd;
+
+  color: var(--text-color);
+  text-align: left;
+  cursor: pointer;
+}
+
+/* 矢印 */
+.faq_arrow {
+  margin-left: auto;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* 開いたときの矢印 */
+.faq_item.active .faq_arrow {
+  transform: rotate(90deg);
+}
+
+/* 回答 */
+.faq_answer {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
+}
+
+/* 回答の文章 */
+.faq_answer p {
+  margin: 0;
+  padding: 15px;
+  background-color: #fff;
+  line-height: 1.7;
+}
+
+@media screen and (min-width: 768px) {
+  .faq_answer,
+  .faq_arrow {
+    transition: none;
+  }
+
+  .access_map {
+    max-width: 800px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+  }
+}

@@ -1,0 +1,125 @@
+/* ---------- 色の登録 ---------- */
+
+:root {
+  --base-color: #fcf7ef;
+  --main-color: #fff2c7;
+  --accent-color: #788a2e;
+  --text-color: #423020;
+  --text_accent-color: #fffbf8;
+  --sub-color: #c5d486;
+}
+
+/* 見出し */
+h2 {
+  text-align: center;
+}
+
+/* フォーム全体 */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* 各フォーム項目 */
+.form-group {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* 左側の文字 */
+.form-group label {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-color);
+  margin: 0;
+}
+
+/* 入力フォーム */
+.form-group input,
+.form-group select {
+  width: 100%;
+  height: 38px;
+  box-sizing: border-box;
+  padding: 0 10px;
+  border: none;
+  background-color: #fff;
+  font-size: 13px;
+  border-radius: 3px;
+}
+
+/* 質問・相談欄 */
+.form-group textarea {
+  width: 100%;
+  height: 100px;
+  box-sizing: border-box;
+  padding: 10px;
+  border: none;
+  background-color: #fff;
+  font-size: 13px;
+  border-radius: 3px;
+  resize: none;
+}
+
+/* 質問・相談欄 */
+.form-group textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+/* 質問・相談欄だけ縦並びにする */
+.form-group:has(textarea) {
+  grid-template-columns: 120px 1fr;
+}
+
+.form-group textarea {
+  grid-column: 2;
+  width: 100%;
+}
+
+/* ボタン */
+.btn {
+  position: relative;
+  color: var(--text-color);
+  background-color: #f1facd;
+  border: 2px solid var(--accent-color);
+  border-radius: 50px;
+  padding: 1rem 2.5rem 1rem 1.5rem;
+  display: table;
+  margin: 3.5rem auto;
+  box-shadow: 5px 5px 0px var(--sub-color);
+}
+
+/* 右向き矢印 */
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--text-color);
+  border-right: 2px solid var(--text-color);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* 入力エラー */
+.error {
+  border: 2px solid red !important;
+  background-color: #fff0f0;
+}
+
+/* ボタン無効時 */
+button:disabled {
+  background-color: #ccc;
+  color: #888;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ボタン有効時 */
+button:enabled {
+  cursor: pointer;
+}

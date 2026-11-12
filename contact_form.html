@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>予約フォーム</title>
+    <meta name="description" content="予約フォームページ" />
+    <link rel="stylesheet" href="css/ress.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/contact_form.css" />
+
+    <script type="module" src="js/contact_form.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <a href=""> <img src="images/logo_header.webp" alt="しっぽの家" /></a>
+        <button><img src="images/hamburger_btn.webp" alt="" /></button>
+      </div>
+    </header>
+    <main>
+      <body>
+        <main>
+          <section class="reservation">
+            <h2>譲渡会予約フォーム</h2>
+
+            <form action="contact_complete.html" method="get">
+              <div class="form-group">
+                <label for="name">お名前</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="山田花子"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="kana">ふりがな</label>
+                <input
+                  type="text"
+                  id="kana"
+                  name="kana"
+                  placeholder="やまだはなこ"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="tel">電話番号</label>
+                <input
+                  type="tel"
+                  id="tel"
+                  name="tel"
+                  placeholder="123-456-7890"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">メールアドレス</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="team-heisei@gmail.com"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="人数">ご来場人数</label>
+                <select id="人数" name="人数">
+                  <option value="1">1名</option>
+                  <option value="2">2名</option>
+                  <option value="3">3名</option>
+                  <option value="4">4名</option>
+                  <option value="5">5名以上</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">ご質問・ご相談など</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="犬はいっぱいいますか？"
+                ></textarea>
+              </div>
+
+              <div><button type="submit" class="btn">予約する</button></div>
+            </form>
+          </section>
+        </main>
+      </body>
+    </main>
+    <footer>
+      <div class="footer_content">
+        <div class="footer_logo">
+          <img src="images/logo_footer.webp" alt="しっぽの家" />
+        </div>
+        <div class="footer_info">
+          <div class="footer_item">
+            <img src="images/icon_location.svg" alt="" />
+            <p>
+              〒651-2273 <br />
+              兵庫県神戸市西区1丁目2-3
+            </p>
+          </div>
+          <div class="footer_item">
+            <img src="images/icon_mail.svg" alt="" />
+            <p>shipponoie@gmail.com</p>
+          </div>
+          <div class="footer_item">
+            <img src="images/icon_tel.svg" alt="" />
+            <p>123-456-7890</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer_bottom">
+        <p><small>&copy;2026 しっぽの家</small></p>
+      </div>
+    </footer>
+  </body>
+</html>

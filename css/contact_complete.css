@@ -1,0 +1,18 @@
+/* ----------色の登録---------- */
+
+:root {
+  --base-color: #fcf7ef;
+  --main-color: #fff2c7;
+  --accent-color: #788a2e;
+  --text-color: #423020;
+  --text_accent-color: #fffbf8;
+  --sub-color: #c5d486;
+}
+/* 使う時の記載方法
+  (例)background-color: var(--accent-color); */
+
+h2,
+.contact_complete {
+  text-align: center;
+  margin-bottom: 24px;
+}
