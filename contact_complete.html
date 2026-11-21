@@ -8,30 +8,53 @@
     <link rel="stylesheet" href="css/ress.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/contact_complete.css" />
+    <script src="js/script.js" defer></script>
     <script src="js/contact_complete.js" defer></script>
-</body>
   </head>
+
   <body>
     <header>
       <div class="header">
-        <a href=""> <img src="images/logo_header.webp" alt="しっぽの家" /></a>
-        <button><img src="images/hamburger_btn.webp" alt="" /></button>
+        <a href="index.html">
+          <img src="images/logo_header.webp" alt="しっぽの家" />
+        </a>
+
+        <button
+          class="menu_btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="global-nav"
+        >
+          <img src="images/hamburger_btn.webp" alt="メニュー" />
+        </button>
       </div>
+
+      <nav class="nav" id="global-nav">
+        <ul>
+          <li><a href="index.html#about">保護犬保護猫とは</a></li>
+          <li><a href="about_event.html">譲渡会のおしらせ</a></li>
+          <li><a href="pets.html">保護っ子たちの紹介</a></li>
+          <li><a href="index.html#aboutus">しっぽの家について</a></li>
+          <li><a href="contact_form.html">予約フォーム</a></li>
+        </ul>
+      </nav>
     </header>
+
     <main>
-      <div class="container"></div>
-      <div class="contact_complete"></div>
+      <h2>譲渡会予約フォーム</h2>
+
+      <p class="contact_complete">
+        ご予約フォームの入力が完了しました。<br />
+        ご入力いただき、ありがとうございます。<br />
+        予約内容を確認のうえ、改めてご連絡いたします。<br />
+        どうぞよろしくお願いいたします。
+      </p>
     </main>
-    <h2>譲渡会予約フォーム</h2>
-    <p class="contact_complete">
-      ご予約フォームの入力が完了しました。<br />
-      ご入力いただき、ありがとうございます。<br />予約内容を確認のうえ、改めてご連絡いたします。<br />
-      どうぞよろしくお願いいたします。
-    </p>
+
     <footer>
       <div class="footer_content">
         <div class="footer_logo">
-          <img src="images/logo_footers.webp" alt="しっぽの家" />
+          <img src="images/logo_footer.webp" alt="しっぽの家" />
         </div>
         <div class="footer_info">
           <div class="footer_item">

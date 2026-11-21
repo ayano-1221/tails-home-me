@@ -17,16 +17,30 @@ console.log('メールアドレス：' + email);
 console.log('ご来場人数：' + number);
 console.log('ご質問・ご相談：' + message);
 
-// contact.jsから関数をインポート
-import { getContactData } from './contact.js';
+// document.addEventListener('DOMContentLoaded', () => {
+//   // ハンバーガーボタンを取得
+//   const menuBtn = document.querySelector('.menu_btn');
 
-// 入力内容を取得
-const { name, kana, tel, email, number, message } = getContactData();
+//   // ナビゲーションを取得
+//   const nav = document.querySelector('.nav');
 
-// コンソールに表示
-console.log('お名前：' + name);
-console.log('ふりがな：' + kana);
-console.log('電話番号：' + tel);
-console.log('メールアドレス：' + email);
-console.log('ご来場人数：' + number);
-console.log('ご質問・ご相談：' + message);
+//   // ボタンを押したとき
+//   menuBtn.addEventListener('click', () => {
+//     // メニューの開閉
+//     nav.classList.toggle('is_open');
+
+//     // 開閉状態を取得
+//     const isOpen = nav.classList.contains('is_open');
+
+//     // aria-expandedを更新
+//     menuBtn.setAttribute('aria-expanded', isOpen);
+//   });
+
+//   // メニュー内のリンクを押したとき
+//   nav.querySelectorAll('a').forEach((link) => {
+//     link.addEventListener('click', () => {
+//       nav.classList.remove('is_open');
+//       menuBtn.setAttribute('aria-expanded', 'false');
+//     });
+//   });
+// });

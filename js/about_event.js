@@ -1,109 +1,146 @@
-// スライドショー
-const track = document.querySelector('.transfermeeting_track');
-const prevBtn = document.querySelector('.prev_left');
-const nextBtn = document.querySelector('.prev_right');
+// -------------------- headerのスクロール時 --------------------
+// window.addEventListener('scroll', () => {
+//   const header = document.querySelector('header');
+//   if (window.scrollY > 50) {
+//     header.classList.add('is-scrolled');
+//   } else {
+//     header.classList.remove('is-scrolled');
+//   }
+// });
 
-if (track && prevBtn && nextBtn) {
-  // 元の画像を取得
-  const slides = Array.from(track.children);
-  const slideCount = slides.length;
+// -------------------- ハンバーガーメニュー --------------------
+// const menuBtn = document.querySelector('.menu_btn');
+// const nav = document.querySelector('.nav');
+// menuBtn.addEventListener('click', () => {
+//   const isOpen = nav.classList.toggle('is_open');
+//   menuBtn.setAttribute('aria-expanded', isOpen);
+// });
+// // メニュー内のリンクを押したらメニューを閉じる
+// nav.querySelectorAll('a').forEach((link) => {
+//   link.addEventListener('click', () => {
+//     nav.classList.remove('is_open');
+//     menuBtn.setAttribute('aria-expanded', 'false');
+//   });
+// });
 
-  // 最初と最後の画像を複製
-  const firstClone = slides[0].cloneNode(true);
-  const lastClone = slides[slideCount - 1].cloneNode(true);
+// -------------------- スライドショー --------------------
 
-  // 前後に複製を追加
-  track.appendChild(firstClone);
-  track.insertBefore(lastClone, slides[0]);
+function initSlider() {
+  const track = document.querySelector('.transfermeeting_track');
+  const prevBtn = document.querySelector('.prev_left');
+  const nextBtn = document.querySelector('.prev_right');
 
-  // 最初の本物の画像からスタート
-  let currentIndex = 1;
-  let isSliding = false;
+  if (track && prevBtn && nextBtn) {
+    // 元の画像を取得
+    const slides = Array.from(track.children);
+    const slideCount = slides.length;
 
-  track.style.transition = 'none';
-  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    // 最初と最後の画像を複製
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slideCount - 1].cloneNode(true);
 
-  // 次のフレームでアニメーションを有効にする
-  requestAnimationFrame(() => {
-    track.style.transition = 'transform 0.5s ease';
-  });
+    // 前後に複製を追加
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, slides[0]);
 
-  // スライドを動かす
-  function updateSlider() {
+    // 最初の本物の画像からスタート
+    let currentIndex = 1;
+    let isSliding = false;
+
+    track.style.transition = 'none';
     track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    // 次のフレームでアニメーションを有効にする
+    requestAnimationFrame(() => {
+      track.style.transition = 'transform 0.5s ease';
+    });
+
+    // スライドを動かす
+    function updateSlider() {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    // 右ボタン
+    nextBtn.addEventListener('click', () => {
+      if (isSliding) return;
+
+      isSliding = true;
+      currentIndex++;
+      updateSlider();
+    });
+
+    // 左ボタン
+    prevBtn.addEventListener('click', () => {
+      if (isSliding) return;
+
+      isSliding = true;
+      currentIndex--;
+      updateSlider();
+    });
+
+    // スライドが終わったとき
+    track.addEventListener('transitionend', (event) => {
+      if (event.target !== track || event.propertyName !== 'transform') {
+        return;
+      }
+
+      // 最後の複製に到達した場合
+      if (currentIndex === slideCount + 1) {
+        track.style.transition = 'none';
+        currentIndex = 1;
+        updateSlider();
+
+        // 位置を確定してからアニメーションを戻す
+        track.getBoundingClientRect();
+        track.style.transition = 'transform 0.5s ease';
+      }
+
+      // 最初の複製に到達した場合
+      if (currentIndex === 0) {
+        track.style.transition = 'none';
+        currentIndex = slideCount;
+        updateSlider();
+
+        track.getBoundingClientRect();
+        track.style.transition = 'transform 0.5s ease';
+      }
+
+      isSliding = false;
+    });
   }
+}
 
-  // 右ボタン
-  nextBtn.addEventListener('click', () => {
-    if (isSliding) return;
+// スライダーを実行
+initSlider();
 
-    isSliding = true;
-    currentIndex++;
-    updateSlider();
-  });
+// -------------------- FAQ --------------------
+function initFaq() {
+  // FAQの項目をすべて取得
+  const faqItems = document.querySelectorAll('.faq_item');
 
-  // 左ボタン
-  prevBtn.addEventListener('click', () => {
-    if (isSliding) return;
+  faqItems.forEach((item) => {
+    const question = item.querySelector('.faq_question');
+    const answer = item.querySelector('.faq_answer');
 
-    isSliding = true;
-    currentIndex--;
-    updateSlider();
-  });
+    question.addEventListener('click', () => {
+      // 現在開いているかを確認
+      const isOpen = item.classList.contains('active');
 
-  // スライドが終わったとき
-  track.addEventListener('transitionend', (event) => {
-    if (event.target !== track || event.propertyName !== 'transform') {
-      return;
-    }
+      // activeクラスを切り替える
+      item.classList.toggle('active', !isOpen);
 
-    // 最後の複製に到達した場合
-    if (currentIndex === slideCount + 1) {
-      track.style.transition = 'none';
-      currentIndex = 1;
-      updateSlider();
+      // 読み上げ用の開閉状態を更新
+      question.setAttribute('aria-expanded', String(!isOpen));
 
-      // 位置を確定してからアニメーションを戻す
-      track.getBoundingClientRect();
-      track.style.transition = 'transform 0.5s ease';
-    }
-
-    // 最初の複製に到達した場合
-    if (currentIndex === 0) {
-      track.style.transition = 'none';
-      currentIndex = slideCount;
-      updateSlider();
-
-      track.getBoundingClientRect();
-      track.style.transition = 'transform 0.5s ease';
-    }
-
-    isSliding = false;
+      if (isOpen) {
+        // 閉じる
+        answer.style.height = '0px';
+      } else {
+        // 開く
+        answer.style.height = answer.scrollHeight + 'px';
+      }
+    });
   });
 }
-// FAQの項目をすべて取得
-const faqItems = document.querySelectorAll('.faq_item');
 
-faqItems.forEach((item) => {
-  const question = item.querySelector('.faq_question');
-  const answer = item.querySelector('.faq_answer');
-
-  question.addEventListener('click', () => {
-    // 現在開いているかを確認
-    const isOpen = item.classList.contains('active');
-
-    // activeクラスを切り替える
-    item.classList.toggle('active', !isOpen);
-
-    // 読み上げ用の開閉状態を更新
-    question.setAttribute('aria-expanded', String(!isOpen));
-
-    if (isOpen) {
-      // 閉じる
-      answer.style.height = '0px';
-    } else {
-      // 開く
-      answer.style.height = answer.scrollHeight + 'px';
-    }
-  });
-});
+initFaq();

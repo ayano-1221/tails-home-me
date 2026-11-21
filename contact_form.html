@@ -9,87 +9,96 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/contact_form.css" />
 
+    <script type="module" src="js/script.js"></script>
     <script type="module" src="js/contact_form.js"></script>
   </head>
   <body>
+    <!---------------------- header ---------------------->
     <header>
       <div class="header">
-        <a href=""> <img src="images/logo_header.webp" alt="しっぽの家" /></a>
-        <button><img src="images/hamburger_btn.webp" alt="" /></button>
+        <a href="index.html">
+          <img src="images/logo_header.webp" alt="しっぽの家" />
+        </a>
+
+        <button
+          class="menu_btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="global-nav"
+        >
+          <img src="images/hamburger_btn.webp" alt="メニュー" />
+        </button>
       </div>
     </header>
+
+    <!-- navigation -->
+    <nav class="nav" id="global-nav">
+      <ul>
+        <li><a href="index.html#about">保護犬保護猫とは</a></li>
+        <li><a href="about_event.html">譲渡会のおしらせ</a></li>
+        <li><a href="pets.html">保護っ子たちの紹介</a></li>
+        <li><a href="index.html#aboutus">しっぽの家について</a></li>
+        <li><a href="contact_form.html">予約フォーム</a></li>
+      </ul>
+    </nav>
     <main>
-      <body>
-        <main>
-          <section class="reservation">
-            <h2>譲渡会予約フォーム</h2>
+      <section class="reservation">
+        <h2>譲渡会予約フォーム</h2>
 
-            <form action="contact_complete.html" method="get">
-              <div class="form-group">
-                <label for="name">お名前</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="山田花子"
-                />
-              </div>
+        <form action="contact_complete.html" method="get">
+          <div class="form-group">
+            <label for="name">お名前</label>
+            <input type="text" id="name" name="name" placeholder="山田花子" />
+          </div>
 
-              <div class="form-group">
-                <label for="kana">ふりがな</label>
-                <input
-                  type="text"
-                  id="kana"
-                  name="kana"
-                  placeholder="やまだはなこ"
-                />
-              </div>
+          <div class="form-group">
+            <label for="kana">ふりがな</label>
+            <input
+              type="text"
+              id="kana"
+              name="kana"
+              placeholder="やまだはなこ"
+            />
+          </div>
 
-              <div class="form-group">
-                <label for="tel">電話番号</label>
-                <input
-                  type="tel"
-                  id="tel"
-                  name="tel"
-                  placeholder="123-456-7890"
-                />
-              </div>
+          <div class="form-group">
+            <label for="tel">電話番号</label>
+            <input type="tel" id="tel" name="tel" placeholder="123-456-7890" />
+          </div>
 
-              <div class="form-group">
-                <label for="email">メールアドレス</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="team-heisei@gmail.com"
-                />
-              </div>
+          <div class="form-group">
+            <label for="email">メールアドレス</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="team-heisei@gmail.com"
+            />
+          </div>
 
-              <div class="form-group">
-                <label for="人数">ご来場人数</label>
-                <select id="人数" name="人数">
-                  <option value="1">1名</option>
-                  <option value="2">2名</option>
-                  <option value="3">3名</option>
-                  <option value="4">4名</option>
-                  <option value="5">5名以上</option>
-                </select>
-              </div>
+          <div class="form-group">
+            <label for="人数">ご来場人数</label>
+            <select id="人数" name="人数">
+              <option value="1">1名</option>
+              <option value="2">2名</option>
+              <option value="3">3名</option>
+              <option value="4">4名</option>
+              <option value="5">5名以上</option>
+            </select>
+          </div>
 
-              <div class="form-group">
-                <label for="message">ご質問・ご相談など</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder="犬はいっぱいいますか？"
-                ></textarea>
-              </div>
+          <div class="form-group">
+            <label for="message">ご質問・ご相談など</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="犬はいっぱいいますか？"
+            ></textarea>
+          </div>
 
-              <div><button type="submit" class="btn">予約する</button></div>
-            </form>
-          </section>
-        </main>
-      </body>
+          <div><button type="submit" class="btn">予約する</button></div>
+        </form>
+      </section>
     </main>
     <footer>
       <div class="footer_content">

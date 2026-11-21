@@ -1,6 +1,6 @@
 // -------------------- fvスライダー --------------------
 
-export function initFvSlider() {
+function initFvSlider() {
   const fv = document.querySelector('.fv');
 
   const fvImagesSp = [
@@ -93,10 +93,10 @@ export function initFvSlider() {
   // 3秒ごとに切り替える
   setInterval(changeFvImage, 3000);
 }
+initFvSlider();
 
 // -------------------- aboutus スライダー --------------------
-
-export function initAboutusSlider() {
+function initAboutusSlider() {
   const aboutusSlider = document.querySelector('.aboutus_slider');
   const aboutusMain = document.querySelector('.aboutus_main');
 
@@ -300,3 +300,4 @@ export function initAboutusSlider() {
     updateAboutusDots();
   });
 }
+initAboutusSlider();

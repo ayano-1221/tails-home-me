@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/ress.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/about_event.css" />
+    <script type="module" src="js/script.js"></script>
     <script type="module" src="js/about_event.js"></script>
     <!-------------------- 文字フォント -------------------->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,18 +24,42 @@
       href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap"
       rel="stylesheet"
     />
+    <meta name="robots" content="noindex, nofollow" />
   </head>
   <body>
+    <!-------------------- ヘッダー -------------------->
+
     <header>
       <div class="header">
         <!-------------------- ロゴ -------------------->
-        <a href=""> <img src="images/logo_header.webp" alt="しっぽの家" /></a>
+        <a href="index.html">
+          <img src="images/logo_header.webp" alt="しっぽの家"
+        /></a>
         <!-------------------- ハンバーガー -------------------->
-        <button><img src="images/hamburger_btn.webp" alt="" /></button>
+        <button class="menu_btn" type="button" aria-expanded="false">
+          <img src="images/hamburger_btn.webp" alt="メニュー" />
+        </button>
       </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html#about">保護犬保護猫とは</a></li>
+          <li><a href="about_event.html">譲渡会のおしらせ</a></li>
+          <li><a href="pets.html">保護っ子たちの紹介</a></li>
+          <li><a href="index.html#aboutus">しっぽの家について</a></li>
+          <li><a href="contact_form.html">予約フォーム</a></li>
+        </ul>
+      </nav>
     </header>
+
+    <!-------------------- メイン -------------------->
     <main>
       <div class="container"></div>
+
+      <!-------------------- 譲渡会に参加ボタン(固定) -------------------->
+      <a href="contact_form.html" class="fixed_reservation">
+        <span>譲渡会に参加</span>
+        <img src="./images/icon_arrow_fill.svg" alt="矢印" />
+      </a>
 
       <!-------------------- 譲渡会とは -------------------->
       <section class="about-intro">
@@ -139,7 +164,11 @@
         <!-------------------- 案内 -------------------->
         <section class="map_container">
           <h3 class="text_center">会場内マップ</h3>
-          <img src="images/park_map.webp" alt="西神中央公園会場マップ" />
+          <img
+            class="park_map"
+            src="images/park_map.webp"
+            alt="西神中央公園会場マップ"
+          />
           <h3 class="text_center">アクセス</h3>
           <ul class="map_list">
             <li>西神中央公園<br />〒651-2273 兵庫県神戸市西区糀台６丁目１</li>
