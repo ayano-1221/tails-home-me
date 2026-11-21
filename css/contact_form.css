@@ -191,7 +191,7 @@ form {
 
 /* 質問・相談欄だけ縦並びにする */
 .form-group:has(textarea) {
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 300px 1f;
 }
 
 .form-group textarea {

@@ -28,7 +28,7 @@ header.is-scrolled {
   right: 0;
   width: 100%;
   z-index: 999;
-  background-color: #fcf7efe1;
+  background-color: #fcf7eff8;
   text-align: center;
   /* 最初は上に隠す */
   opacity: 0;
@@ -107,7 +107,6 @@ header.is-scrolled {
   }
   .nav a {
     padding: 0.5rem 0;
-    /* white-space: nowrap; */
     color: var(--accent-color);
   }
   .nav a:hover {
@@ -317,10 +316,7 @@ h3 {
 .animal_item p:nth-of-type(1) {
   text-align: center;
 }
-/* .animal_item p:nth-of-type(1),
-.animal_birthday img {
-  margin-bottom: 1rem;
-} */
+
 .animal_birthday img {
   width: 1.5rem;
   height: auto;
@@ -336,10 +332,7 @@ h3 {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem; /* カード同士の間隔 */
     list-style: none;
-    /* padding: 0 12px; */
     margin: 0 auto;
-    /* width: 100%; */
-    /* box-sizing: border-box; */
     margin-bottom: 40px; /* 必要に応じて 30px〜60px などに調整してください */
     font-size: 24px;
   }
