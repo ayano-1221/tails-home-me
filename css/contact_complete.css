@@ -8,11 +8,132 @@
   --text_accent-color: #fffbf8;
   --sub-color: #c5d486;
 }
-/* 使う時の記載方法
-  (例)background-color: var(--accent-color); */
+
+/* -------------------- ヘッダー -------------------- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--sub-color);
+}
+header.is-scrolled {
+  opacity: 0.9;
+}
+/* ハンバーガーメニュー */
+.nav {
+  position: fixed;
+  top: 4rem;
+  right: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #fcf7efe1;
+  text-align: center;
+  /* 最初は上に隠す */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  pointer-events: none;
+  /* 動きを設定 */
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    visibility 0.4s;
+}
+/* メニューを開いたとき */
+.nav.is_open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.nav li {
+  border-bottom: 4px dotted var(--sub-color);
+}
+.nav a {
+  display: block;
+  padding: 1rem;
+  color: var(--text-color);
+}
+.nav a:hover {
+  background-color: var(--main-color);
+}
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 1240px;
+  }
+  /* ロゴとハンバーガーの配置 */
+  .header {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  /* ハンバーガーボタンを非表示 */
+  .menu_btn {
+    display: none;
+  }
+  /* デスクトップ版ナビゲーション */
+  .nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 1240px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: transparent;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+  }
+  .nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    height: 100%;
+    /* margin: 0; */
+    padding: 0 1rem;
+    list-style: none;
+  }
+  .nav li {
+    border-bottom: none;
+  }
+  .nav a {
+    padding: 0.5rem 0;
+    /* white-space: nowrap; */
+    color: var(--accent-color);
+  }
+  .nav a:hover {
+    background-color: transparent;
+    color: var(--text-color);
+  }
+}
+
+h2 {
+  margin-top: 7rem;
+}
 
 h2,
 .contact_complete {
   text-align: center;
-  margin-bottom: 24px;
+  line-height: 1.5;
+  margin-bottom: 3rem;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }

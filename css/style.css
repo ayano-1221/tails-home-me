@@ -56,6 +56,10 @@ ul li {
   list-style: none;
 }
 
+a {
+  text-decoration: none;
+}
+
 .header {
   display: flex;
   justify-content: space-between;

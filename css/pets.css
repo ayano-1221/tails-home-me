@@ -8,65 +8,194 @@
   --text_accent-color: #fffbf8;
   --sub-color: #c5d486;
 }
-/* 使う時の記載方法
-  (例)background-color: var(--accent-color); */
 
-h2,
+/* -------------------- ヘッダー -------------------- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--sub-color);
+}
+header.is-scrolled {
+  opacity: 0.9;
+}
+/* ハンバーガーメニュー */
+.nav {
+  position: fixed;
+  top: 4rem;
+  right: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #fcf7efe1;
+  text-align: center;
+  /* 最初は上に隠す */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  pointer-events: none;
+  /* 動きを設定 */
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    visibility 0.4s;
+}
+/* メニューを開いたとき */
+.nav.is_open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.nav li {
+  border-bottom: 4px dotted var(--sub-color);
+}
+.nav a {
+  display: block;
+  padding: 1rem;
+  color: var(--text-color);
+}
+.nav a:hover {
+  background-color: var(--main-color);
+}
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 1240px;
+  }
+  /* ロゴとハンバーガーの配置 */
+  .header {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  /* ハンバーガーボタンを非表示 */
+  .menu_btn {
+    display: none;
+  }
+  /* デスクトップ版ナビゲーション */
+  .nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 1240px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: transparent;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+  }
+  .nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    height: 100%;
+    /* margin: 0; */
+    padding: 0 1rem;
+    list-style: none;
+  }
+  .nav li {
+    border-bottom: none;
+  }
+  .nav a {
+    padding: 0.5rem 0;
+    /* white-space: nowrap; */
+    color: var(--accent-color);
+  }
+  .nav a:hover {
+    background-color: transparent;
+    color: var(--text-color);
+  }
+}
+
+h2 {
+  text-align: center;
+  margin-top: 4rem;
+}
+
 h3 {
   text-align: center;
+}
+.dogcard h3::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-image: url('images/shelter_dogs_cats/icon_dog.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 犬・猫の見出しとロゴ */
+.case_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 24px 0 16px;
 }
 
 .case_dogs,
 .case_cats {
   font-size: 24px;
+  margin: 0;
   text-align: center;
-  margin-top: 16px;
 }
+
 .message {
-  text-align: center;
-  font-size: 19px;
+  width: fit-content;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 16px;
+  padding: 0 1rem;
   margin-top: 32px;
-  margin-bottom: 32px;
 }
 
 /* 円グラフ画像 */
 .dog_a_day img,
 .cat_a_day img {
   display: block;
-  width: 65%;
-  max-width: 1440px;
+  width: 80%;
+  max-width: 600px;
   height: auto;
   margin: 0 auto;
 }
 
 .dog_logo,
 .cat_logo {
-  display: inline-block;
-  width: 28px;
-  height: auto;
+  display: block;
+  width: auto;
+  height: 1rem;
+  flex-shrink: 0;
 }
 
 .dog-card,
 .cat-card {
-  text-align: center;
-  margin-top: 32px;
-  margin-bottom: 32px;
-}
-
-.dog-card,
-.cat_card {
   display: flex;
   align-items: center; /* 縦方向の中央揃え */
   justify-content: center; /* 横方向の中央揃え */
-  gap: 16px;
+  gap: 0.5rem;
   margin-top: 32px;
   margin-bottom: 16px;
 }
 
+.dog-card h3,
+.cat-card h3 {
+  margin: 4rem 0;
+}
 .shelter_dogs,
 .shelter_cats {
-  width: 24px;
-  margin-bottom: 9px;
+  width: 2rem;
+  align-items: center;
 }
 
 /* --------arita-san----------------- */
@@ -92,20 +221,9 @@ h3 {
   pointer-events: none;
 }
 
-.animal_list {
-  display: flex;
-  gap: 1rem;
-  width: 95%;
-  margin: 0 auto;
-}
-
 .animal_item {
   width: 50%;
 }
-/* .animal_item img {
-  border-radius: 16px 16px 0 0;
-  margin-bottom: 0.5rem;
-} */
 
 .animal_item > img {
   width: 100%;
@@ -151,9 +269,14 @@ h3 {
   font-size: 15px;
 }
 
+/* 動物カード内の文字 */
+.animal_item {
+  text-align: left;
+}
+
 .animal_item h4,
-.animal_item p:nth-of-type(1) {
-  text-align: center;
+.animal_item p {
+  text-align: left;
 }
 
 .animal_item p:nth-of-type(2) {
@@ -166,14 +289,14 @@ h3 {
 /* -------grid------------- */
 .animal_list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2列に均等分割する */
-  gap: 16px; /* カード同士の間隔 */
-  list-style: none;
-  padding: 0 12px;
+
+  grid-template-columns: repeat(2, 1fr); /*2列に均等分割する */
+  gap: 0.7rem; /* カード同士の間隔 */
+  padding: 0 0.5rem;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
-  margin-bottom: 40px; /* 必要に応じて 30px〜60px などに調整してください */
+  margin-bottom: 40px;
 }
 
 /* 1枚ごとのカードの設定 */
@@ -183,103 +306,118 @@ h3 {
   border-radius: 16px;
   position: relative;
   box-sizing: border-box;
-  overflow: hidden;
   text-align: center;
-  padding-bottom: 12px;
 }
+
+.animal_item img {
+  height: 12rem;
+}
+
+.animal_item h4,
+.animal_item p:nth-of-type(1) {
+  text-align: center;
+}
+/* .animal_item p:nth-of-type(1),
+.animal_birthday img {
+  margin-bottom: 1rem;
+} */
+.animal_birthday img {
+  width: 1.5rem;
+  height: auto;
+}
+
 /* -------------pc------------------ */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .container {
     max-width: 1240px;
   }
   .animal_list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2列に均等分割する */
-    gap: 16px; /* カード同士の間隔 */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem; /* カード同士の間隔 */
     list-style: none;
-    padding: 0 12px;
+    /* padding: 0 12px; */
     margin: 0 auto;
-    width: 100%;
-    box-sizing: border-box;
+    /* width: 100%; */
+    /* box-sizing: border-box; */
     margin-bottom: 40px; /* 必要に応じて 30px〜60px などに調整してください */
     font-size: 24px;
-    .animal_birthday p {
-      font-size: 30px;
-    }
-    .message {
-      text-align: center;
-      font-size: 30px;
-      margin-top: 32px;
-      margin-bottom: 32px;
-    }
-    .animal_item > img {
-      width: 100%;
-      height: 500px; /* ★ここでお好みの高さに調整できます（例: 120px〜150px） */
-      object-fit: cover; /* ★画像が歪まないように自動で綺麗にトリミングします */
-      border-radius: 16px 16px 0 0;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
+  }
+  .animal_birthday p {
+    font-size: 24px;
+  }
+  .message {
+    text-align: left;
+    font-size: 16px;
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  .animal_item > img {
+    display: block;
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .animal_birthday img {
+    width: 2rem;
+    height: auto;
   }
 }
 
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 1240px;
+  }
+  .case_dogs,
+  .case_cats {
+    font-size: 28px;
+  }
+}
+
+/* 固定予約ボタン */
 .fixed_reservation {
   position: fixed;
   display: flex;
   gap: 0.5rem;
-  top: 30%;
+  align-items: center;
+  top: 60%;
   right: 0;
   z-index: 1000;
   padding: 1rem 0.8rem;
-  background-color: var(--accent-color);
+  background-color: #788a2ec9;
   color: var(--text_accent-color);
   border-radius: 16px 0 0 16px;
   writing-mode: vertical-rl;
   letter-spacing: 0.2em;
   box-shadow: inset 4px 4px 8px #43501149;
 }
-
 .fixed_reservation img {
   width: 1.5rem;
 }
-
-.fixed_reservation {
-  gap: 0.5rem;
-  top: 20%;
-  padding: 1.5rem 1.5rem;
-  letter-spacing: 0.3em;
-  box-shadow: inset 4px 4px 8px #43501149;
-}
-
-.fixed_reservation:hover {
-  background-color: #b5d048;
-  transition: 0.5s;
-}
-
-.fixed_reservation {
-  position: fixed;
-  display: flex;
-  gap: 0.5rem;
-  top: 20%;
-  right: 0;
-  z-index: 1000;
-  padding: 1.5rem;
+.fixed_reservation:hover,
+.fixed_reservation:active {
   background-color: var(--accent-color);
-  color: var(--text_accent-color);
-  border-radius: 16px 0 0 16px;
-  writing-mode: vertical-rl;
-  letter-spacing: 0.3em;
-  box-shadow: inset 4px 4px 8px #43501149;
-
-  /* 追加 */
-  text-decoration: none;
+  transition: 0.3s;
 }
 
-.fixed_reservation img {
-  width: 1.5rem;
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 1240px;
+  }
+  .fixed_reservation {
+    gap: 0.5rem;
+    font-size: 18px;
+    padding: 1.5rem 1.5rem;
+    letter-spacing: 0.3em;
+    box-shadow: inset 4px 4px 8px #43501149;
+  }
 }
 
-.fixed_reservation:hover {
-  background-color: #b5d048;
-  transition: 0.5s;
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }

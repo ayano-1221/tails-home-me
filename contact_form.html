@@ -14,33 +14,29 @@
   </head>
   <body>
     <!---------------------- header ---------------------->
+
     <header>
       <div class="header">
         <a href="index.html">
-          <img src="images/logo_header.webp" alt="しっぽの家" />
-        </a>
+          <img src="images/logo_header.webp" alt="しっぽの家"
+        /></a>
 
-        <button
-          class="menu_btn"
-          type="button"
-          aria-expanded="false"
-          aria-controls="global-nav"
-        >
+        <button class="menu_btn" type="button" aria-expanded="false">
           <img src="images/hamburger_btn.webp" alt="メニュー" />
         </button>
       </div>
+
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html#about">保護犬保護猫とは</a></li>
+          <li><a href="about_event.html">譲渡会のおしらせ</a></li>
+          <li><a href="pets.html">保護っ子たちの紹介</a></li>
+          <li><a href="index.html#aboutus">しっぽの家について</a></li>
+          <li><a href="contact_form.html">予約フォーム</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <!-- navigation -->
-    <nav class="nav" id="global-nav">
-      <ul>
-        <li><a href="index.html#about">保護犬保護猫とは</a></li>
-        <li><a href="about_event.html">譲渡会のおしらせ</a></li>
-        <li><a href="pets.html">保護っ子たちの紹介</a></li>
-        <li><a href="index.html#aboutus">しっぽの家について</a></li>
-        <li><a href="contact_form.html">予約フォーム</a></li>
-      </ul>
-    </nav>
     <main>
       <section class="reservation">
         <h2>譲渡会予約フォーム</h2>
@@ -48,7 +44,7 @@
         <form action="contact_complete.html" method="get">
           <div class="form-group">
             <label for="name">お名前</label>
-            <input type="text" id="name" name="name" placeholder="山田花子" />
+            <input type="text" id="name" name="name" placeholder="尻尾太郎" />
           </div>
 
           <div class="form-group">
@@ -57,13 +53,13 @@
               type="text"
               id="kana"
               name="kana"
-              placeholder="やまだはなこ"
+              placeholder="しっぽたろう"
             />
           </div>
 
           <div class="form-group">
             <label for="tel">電話番号</label>
-            <input type="tel" id="tel" name="tel" placeholder="123-456-7890" />
+            <input type="tel" id="tel" name="tel" placeholder="090-1234-5678" />
           </div>
 
           <div class="form-group">
@@ -72,13 +68,14 @@
               type="email"
               id="email"
               name="email"
-              placeholder="team-heisei@gmail.com"
+              placeholder="contact@example.com"
             />
           </div>
 
           <div class="form-group">
             <label for="人数">ご来場人数</label>
             <select id="人数" name="人数">
+              <option value="" selected disabled>選択してください</option>
               <option value="1">1名</option>
               <option value="2">2名</option>
               <option value="3">3名</option>
@@ -92,7 +89,7 @@
             <textarea
               id="message"
               name="message"
-              placeholder="犬はいっぱいいますか？"
+              placeholder="メッセージを入力してください。"
             ></textarea>
           </div>
 

@@ -19,11 +19,13 @@
 
 .color_container {
   background-color: var(--main-color);
+  background-image: url(../images/about_pow_sp.webp);
   padding: 1rem 1.5rem 0;
 }
 
 .about-intro {
-  padding: 0px 1.5rem 0;
+  padding: 50px 1.5rem 0;
+  /* background-image: url(../images/bg_paw_l_sp.webp); */
 }
 
 .about-intro h2 {
@@ -38,11 +40,152 @@
   padding: 0px 2rem 50px;
 }
 
-/* -------------------- スライドの画像 -------------------- */
-
-.transfermeeting_img {
-  max-width: 300px;
+/* -------------------- ヘッダー -------------------- */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--sub-color);
 }
+header.is-scrolled {
+  opacity: 0.9;
+}
+/* ハンバーガーメニュー */
+.nav {
+  position: fixed;
+  top: 4rem;
+  right: 0;
+  width: 100%;
+  z-index: 999;
+  background-color: #fcf7efe1;
+  text-align: center;
+  /* 最初は上に隠す */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  pointer-events: none;
+  /* 動きを設定 */
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    visibility 0.4s;
+}
+/* メニューを開いたとき */
+.nav.is_open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.nav li {
+  border-bottom: 4px dotted var(--sub-color);
+}
+.nav a {
+  display: block;
+  padding: 1rem;
+  color: var(--text-color);
+}
+.nav a:hover {
+  background-color: var(--main-color);
+}
+@media screen and (min-width: 992px) {
+  .container {
+    max-width: 1240px;
+  }
+  /* ロゴとハンバーガーの配置 */
+  .header {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  /* ハンバーガーボタンを非表示 */
+  .menu_btn {
+    display: none;
+  }
+  /* デスクトップ版ナビゲーション */
+  .nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 1240px;
+    height: 100%;
+    margin: 0 auto;
+    background-color: transparent;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+  }
+  .nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    height: 100%;
+    /* margin: 0; */
+    padding: 0 1rem;
+    list-style: none;
+  }
+  .nav li {
+    border-bottom: none;
+  }
+  .nav a {
+    padding: 0.5rem 0;
+    /* white-space: nowrap; */
+    color: var(--accent-color);
+  }
+  .nav a:hover {
+    background-color: transparent;
+    color: var(--text-color);
+  }
+}
+/* -------------------- 固定予約ボタン -------------------- */
+.fixed_reservation {
+  position: fixed;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  top: 60%;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 0.8rem;
+  background-color: #788a2ec9;
+  color: var(--text_accent-color);
+  border-radius: 16px 0 0 16px;
+  writing-mode: vertical-rl;
+  letter-spacing: 0.2em;
+  box-shadow: inset 4px 4px 8px #43501149;
+}
+.fixed_reservation img {
+  width: 1.5rem;
+}
+.fixed_reservation:hover,
+.fixed_reservation:active {
+  background-color: var(--accent-color);
+  transition: 0.3s;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 1240px;
+  }
+  .fixed_reservation {
+    gap: 0.5rem;
+    font-size: 18px;
+    padding: 1.5rem 1.5rem;
+    letter-spacing: 0.3em;
+    box-shadow: inset 4px 4px 8px #43501149;
+  }
+}
+
+/* -------------------- スライドの画像 -------------------- */
 
 /* スライドショー全体 */
 .transfermeeting_slide {
@@ -51,6 +194,7 @@
   justify-content: center;
   gap: 10px;
   width: 100%;
+  min-width: 0;
 }
 
 /* 左右の丸いボタン */
@@ -83,10 +227,11 @@
 /* スライドを横並び */
 .transfermeeting_track {
   display: flex;
+  width: 100%;
   transition: transform 0.5s ease;
 }
 
-/* 各スライド */
+/* 1枚分の領域 */
 .transfermeeting_track > div {
   flex: 0 0 100%;
   min-width: 0;
@@ -96,8 +241,9 @@
 .transfermeeting_img {
   display: block;
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 /* -------------------- ロードマップ -------------------- */
@@ -184,6 +330,12 @@
   padding: 1rem 0 1rem 0;
 }
 
+.park_map {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* -------------------- FAQ -------------------- */
 
 .text_center_weight {
@@ -215,6 +367,10 @@
   cursor: pointer;
 }
 
+.faq_question span:first-child {
+  font-weight: 700;
+}
+
 /* 矢印 */
 .faq_arrow {
   margin-left: auto;
@@ -242,7 +398,38 @@
   line-height: 1.7;
 }
 
+/* -------------------- PC版 -------------------- */
+
 @media screen and (min-width: 768px) {
+  .container {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+
+  /* .about-intro { */
+  /* background-image: url(../images/bg_paw_r_pc.webp); */
+  /* } */
+
+  .about-intro p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 2;
+  }
+
+  .color_container {
+    background-color: var(--main-color);
+    background-image: url(../images/about_pow_pc.webp);
+  }
+
+  .color_container p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 2;
+  }
+
   .faq_answer,
   .faq_arrow {
     transition: none;
@@ -252,5 +439,85 @@
     max-width: 800px;
     margin: 0 auto;
     aspect-ratio: 16 / 9;
+  }
+
+  /* ----------スライドショー---------- */
+
+  .transfermeeting_slide {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .transfermeeting_img {
+    width: 100%;
+    max-width: none;
+    height: auto;
+  }
+
+  /* ----------ロードマップ---------- */
+
+  /* ロードマップの横長の枠 */
+  .join {
+    max-width: 550px;
+    height: 80px;
+    gap: 30px;
+  }
+
+  /* 左側の丸 */
+  .join_circle {
+    width: 90px;
+    height: 90px;
+    margin-left: -25px;
+  }
+
+  /* 丸の中の画像 */
+  .join_circle img {
+    width: 75px;
+  }
+
+  /* 文字 */
+  .join_text {
+    font-size: 22px;
+  }
+
+  /* 下向きの三角 */
+  .roadmap_arrow {
+    font-size: 28px;
+    margin: 20px 0;
+  }
+
+  /* ----------案内---------- */
+
+  .map_list {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .park_map {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  /* ----------FAQ---------- */
+  .faq_list {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 15px;
+  }
+
+  .faq_question {
+    padding: 18px 20px;
+    font-size: 16px;
+  }
+
+  .faq_answer p {
+    padding: 20px;
+    font-size: 16px;
+    line-height: 1.8;
   }
 }
